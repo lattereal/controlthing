@@ -25,7 +25,7 @@ if LocalPLR.Name ~= Username then
     local logChat = getgenv().logChat
     webhook = getgenv().webhook
 
-    Prefix = getgenv().Prefix
+    Prefix = getgenv().Prefix = "?"
 
     local bots = getgenv().Bots
 
@@ -334,7 +334,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BOTREMOVE:
-        if msg:sub(1, 10) == Prefix .. "botremove" then
+        if msg:sub(1, 10) ==  .. "botremove" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -365,7 +365,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- PRINTCMDS:
-        if msg:sub(1, 10) == Prefix .. "printcmds" then
+        if msg:sub(1, 10) ==  .. "printcmds" then
 
             print("\n---------- CONTROLBOTZ CMDS ----------\n" .. request({ Url = "https://raw.githubusercontent.com/sixpennyfox4/rbx/refs/heads/main/ControlBotZ%20Cmds.txt", Method = "GET" }).Body)
             if index == 1 then
@@ -374,7 +374,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- REJOIN:
-        if msg:sub(1, 7) == Prefix .. 'rejoin' then
+        if msg:sub(1, 7) ==  .. 'rejoin' then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -391,7 +391,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- RESET:
-        if msg:sub(1, 6) == Prefix .. "reset" then
+        if msg:sub(1, 6) ==  .. "reset" then
 
             function runCode()
                 LocalPLR.Character.Humanoid.Health = 0
@@ -402,7 +402,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- JUMP:
-        if msg:sub(1, 5) == Prefix .. "jump" then
+        if msg:sub(1, 5) ==  .. "jump" then
 
             function runCode()
                 LocalPLR.Character.Humanoid.Jump = true
@@ -413,7 +413,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BRING:
-        if msg:sub(1, 6) == Prefix .. "bring" then
+        if msg:sub(1, 6) ==  .. "bring" then
 
             function runCode()
                 LocalPLR.Character:FindFirstChild("HumanoidRootPart").CFrame = game.Players[player.Name].Character:FindFirstChild("HumanoidRootPart").CFrame
@@ -424,7 +424,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LOGCHAT:
-        if msg:sub(1, 8) == Prefix .. "logchat" then
+        if msg:sub(1, 8) ==  .. "logchat" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -448,7 +448,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- COPYCHAT:
-        if msg:sub(1, 9) == Prefix .. "copychat" then
+        if msg:sub(1, 9) ==  .. "copychat" then
 
             local args = getArgs(message:sub(11))
             local targetPLR = getFullPlayerName(args[1])
@@ -468,7 +468,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 11) == Prefix .. "uncopychat" then
+        if msg:sub(1, 11) ==  .. "uncopychat" then
 
             function runCode()
                 copychat = false
@@ -484,7 +484,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- CHAT:
-        if msg:sub(1, 5) == Prefix .. "chat" then
+        if msg:sub(1, 5) ==  .. "chat" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -495,7 +495,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SIT:
-        if msg:sub(1, 4) == Prefix .. "sit" then
+        if msg:sub(1, 4) ==  .. "sit" then
 
             function runCode()
                 LocalPLR.Character.Humanoid.Sit = true
@@ -506,7 +506,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SPEED:
-        if msg:sub(1, 6) == Prefix .. "speed" then
+        if msg:sub(1, 6) ==  .. "speed" then
             local args = getArgs(msg:sub(8))
 
             function runCode()
@@ -517,7 +517,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 8) == Prefix .. "gravity" then
+        if msg:sub(1, 8) ==  .. "gravity" then
             local args = getArgs(msg:sub(10))
 
             function runCode()
@@ -531,7 +531,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LINEUP:
-        if msg:sub(1, 7) == Prefix .. "lineup" then
+        if msg:sub(1, 7) ==  .. "lineup" then
 
             local direction = msg:sub(9)
             local spacing = 3
@@ -559,7 +559,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SHUTDOWN:
-        if msg:sub(1, 9) == Prefix .. "shutdown" then
+        if msg:sub(1, 9) ==  .. "shutdown" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -574,7 +574,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SURROUND:
-        if msg:sub(1, 9) == Prefix .. "surround" then -- LITERALY COPY PASTE OF ORBIT COMMAND(too lazy srry)
+        if msg:sub(1, 9) ==  .. "surround" then -- LITERALY COPY PASTE OF ORBIT COMMAND(too lazy srry)
 
             local args = getArgs(message:sub(11))
             local targetPLR = getFullPlayerName(args[1])
@@ -604,7 +604,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- 4K:
-        if msg:sub(1, 3) == Prefix .. "4k" then
+        if msg:sub(1, 3) ==  .. "4k" then
             local targetPLR = getFullPlayerName(message:sub(5))
 
             if game.Players[targetPLR] then
@@ -640,7 +640,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- JORK(yep under 4k):
-        if msg:sub(1, 5) == Prefix .. "jork" then
+        if msg:sub(1, 5) ==  .. "jork" then
             local args = getArgs(msg:sub(7))
             local speed = tonumber(args[1]) or 1
 
@@ -665,7 +665,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 7) == Prefix .. "unjork" then
+        if msg:sub(1, 7) ==  .. "unjork" then
 
             function runCode()
                 if jorkAnim then
@@ -684,7 +684,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SCM:
-        if msg:sub(1, 4) == Prefix .. "scm" then
+        if msg:sub(1, 4) ==  .. "scm" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -707,7 +707,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- ORBIT:
-        if msg:sub(1, 6) == Prefix .. "orbit" then
+        if msg:sub(1, 6) ==  .. "orbit" then
 
             local args = getArgs(message:sub(8))
             local targetPLR = getFullPlayerName(args[1])
@@ -744,7 +744,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- 2ORBIT:
-        if msg:sub(1, 7) == Prefix .. "2orbit" then
+        if msg:sub(1, 7) ==  .. "2orbit" then
 
             local args = getArgs(message:sub(9))
             local targetPLR = getFullPlayerName(args[1])
@@ -781,7 +781,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LINEORBIT:
-        if msg:sub(1, 10) == Prefix .. "lineorbit" then
+        if msg:sub(1, 10) ==  .. "lineorbit" then
 
             local args = getArgs(message:sub(12))
             local targetPLR = getFullPlayerName(args[1])
@@ -816,7 +816,7 @@ if LocalPLR.Name ~= Username then
             specifyBots2(args, 2, runCode)
         end
 
-        if msg:sub(1, 8) == Prefix .. "unorbit" then
+        if msg:sub(1, 8) ==  .. "unorbit" then
 
             function runCode()
                 if orbit1 then
@@ -840,7 +840,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- ROCKET:
-        if msg:sub(1, 7) == Prefix .. "rocket" then
+        if msg:sub(1, 7) ==  .. "rocket" then
             local args = getArgs(msg:sub(9))
             local studs = tonumber(args[1]) or 500
 
@@ -881,7 +881,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- WALKTO:
-        if msg:sub(1, 7) == Prefix .. "walkto" then
+        if msg:sub(1, 7) ==  .. "walkto" then
             local args = getArgs(message:sub(9))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -897,7 +897,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- GOTO:
-        if msg:sub(1, 5) == Prefix .. "goto" then
+        if msg:sub(1, 5) ==  .. "goto" then
             local args = getArgs(message:sub(7))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -913,7 +913,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- FOLLOW:
-        if msg:sub(1, 7) == Prefix .. "follow" then
+        if msg:sub(1, 7) ==  .. "follow" then
             local args = getArgs(message:sub(9))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -928,7 +928,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 9) == Prefix .. "unfollow" then
+        if msg:sub(1, 9) ==  .. "unfollow" then
 
             function runCode()
                 followF:Disconnect()
@@ -939,7 +939,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LINEFOLLOW:
-        if msg:sub(1, 11) == Prefix .. "linefollow" then
+        if msg:sub(1, 11) ==  .. "linefollow" then
             local args = getArgs(message:sub(13))
 
             local spacing = 3
@@ -957,7 +957,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 13) == Prefix .. "unlinefollow" then
+        if msg:sub(1, 13) ==  .. "unlinefollow" then
 
             function runCode()
                 linefollowF:Disconnect()
@@ -968,7 +968,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- WORM (yep i had to put it under linefollow):
-        if msg:sub(1, 5) == Prefix .. "worm" then
+        if msg:sub(1, 5) ==  .. "worm" then
             local args = getArgs(message:sub(7))
             local targetPLR = getFullPlayerName(args[1])
             local botInfront
@@ -988,7 +988,7 @@ if LocalPLR.Name ~= Username then
             end)
         end
 
-        if msg:sub(1, 7) == Prefix .. "unworm" then
+        if msg:sub(1, 7) ==  .. "unworm" then
 
             if wormF then
                 wormF:Disconnect()
@@ -997,7 +997,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- ANTI-BANG:
-        if msg:sub(1, 9) == Prefix .. "antibang" then
+        if msg:sub(1, 9) ==  .. "antibang" then
 
                 function runCode()
 
@@ -1019,7 +1019,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- PARTSRAIN:
-        if msg:sub(1, 10) == Prefix .. "partsrain" then
+        if msg:sub(1, 10) ==  .. "partsrain" then
             local args = getArgs(message:sub(12))
             local targetPLR = getFullPlayerName(args[1])
             local fallHeight = tonumber(args[2]) or 80
@@ -1057,7 +1057,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 12) == Prefix .. "unpartsrain" then
+        if msg:sub(1, 12) ==  .. "unpartsrain" then
 
             function runCode()
                 rainF:Disconnect()
@@ -1072,7 +1072,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- FREEZE
-        if msg:sub(1, 7) == Prefix .. "freeze" then
+        if msg:sub(1, 7) ==  .. "freeze" then
 
             function runCode()
                 for _, child in pairs(LocalPLR.Character:GetChildren()) do
@@ -1086,7 +1086,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 9) == Prefix .. "unfreeze" then
+        if msg:sub(1, 9) ==  .. "unfreeze" then
 
             function runCode()
                 for _, child in pairs(LocalPLR.Character:GetChildren()) do
@@ -1101,7 +1101,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BACKFLIP (credits to a random script i found):
-        if msg:sub(1, 9) == Prefix .. "backflip" then
+        if msg:sub(1, 9) ==  .. "backflip" then
 
             function runCode()
                 LocalPLR.Character.Humanoid:ChangeState("Jumping")
@@ -1121,7 +1121,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 10) == Prefix .. "frontflip" then
+        if msg:sub(1, 10) ==  .. "frontflip" then
 
             function runCode()
                 LocalPLR.Character.Humanoid:ChangeState("Jumping")
@@ -1142,7 +1142,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SPIN:
-        if msg:sub(1, 5) == Prefix .. "spin" then
+        if msg:sub(1, 5) ==  .. "spin" then
             local args = getArgs(msg:sub(7))
 
             local spinSpeed = tonumber(args[1]) or 10
@@ -1159,7 +1159,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 7) == Prefix .. "unspin" then
+        if msg:sub(1, 7) ==  .. "unspin" then
 
             function runCode()
                 for _, v in pairs(LocalPLR.Character.HumanoidRootPart:GetChildren()) do
@@ -1174,7 +1174,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- STACK:
-        if msg:sub(1, 6) == Prefix .. "stack" then
+        if msg:sub(1, 6) ==  .. "stack" then
             local args = getArgs(message:sub(8))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -1203,7 +1203,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- 2STACK:
-        if msg:sub(1, 7) == Prefix .. "2stack" then
+        if msg:sub(1, 7) ==  .. "2stack" then
             local args = getArgs(message:sub(9))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -1242,7 +1242,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 8) == Prefix .. "unstack" then
+        if msg:sub(1, 8) ==  .. "unstack" then
 
             function runCode()
                 if stackF then
@@ -1263,7 +1263,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LOOKAT:
-        if msg:sub(1, 7) == Prefix .. "lookat" then
+        if msg:sub(1, 7) ==  .. "lookat" then
             local args = getArgs(message:sub(9))
 
             local targetPLR = getFullPlayerName(args[1])
@@ -1280,7 +1280,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 9) == Prefix .. "unlookat" then
+        if msg:sub(1, 9) ==  .. "unlookat" then
 
             function runCode()
                 lookatF:Disconnect()
@@ -1299,7 +1299,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- FLING:
-        if msg:sub(1, 6) == Prefix .. "fling" then
+        if msg:sub(1, 6) ==  .. "fling" then
             local args = getArgs(message:sub(8))
 
             lastCFRAME = LocalPLR.Character.HumanoidRootPart.CFrame
@@ -1336,7 +1336,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 8) == Prefix .. "unfling" then
+        if msg:sub(1, 8) ==  .. "unfling" then
 
             function runCode()
                 Spin:Destroy()
@@ -1354,7 +1354,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BANG:
-        if msg:sub(1, 5) == Prefix .. "bang" then
+        if msg:sub(1, 5) ==  .. "bang" then
 
             local args = getArgs(message:sub(7))
             local targetPLR = getFullPlayerName(args[1])
@@ -1385,7 +1385,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- 2BANG:
-        if msg:sub(1, 6) == Prefix .. "2bang" then
+        if msg:sub(1, 6) ==  .. "2bang" then
 
             local args = getArgs(message:sub(8))
             local targetPLR = getFullPlayerName(args[1])
@@ -1427,7 +1427,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- FACEBANG:
-        if msg:sub(1, 9) == Prefix .. "facebang" then
+        if msg:sub(1, 9) ==  .. "facebang" then
 
             local args = getArgs(message:sub(11))
             local targetPLR = getFullPlayerName(args[1])
@@ -1462,7 +1462,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- 2FACEBANG:
-        if msg:sub(1, 10) == Prefix .. "2facebang" then
+        if msg:sub(1, 10) ==  .. "2facebang" then
 
             local args = getArgs(message:sub(12))
             local targetPLR = getFullPlayerName(args[1])
@@ -1500,7 +1500,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 7) == Prefix .. "unbang" then
+        if msg:sub(1, 7) ==  .. "unbang" then
 
             function runCode()
                 if anim then
@@ -1524,7 +1524,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 8) == Prefix .. "unfbang" then
+        if msg:sub(1, 8) ==  .. "unfbang" then
 
             function runCode()
                 if anim2 then
@@ -1549,7 +1549,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- INDEX:
-        if msg:sub(1, 6) == Prefix .. "index" then
+        if msg:sub(1, 6) ==  .. "index" then
 
             function runCode()
                 chat("Index: " .. index)
@@ -1559,7 +1559,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- CLEARCHAT (CREDITS TO @thereal_asu):
-        if msg == Prefix .. "clearchat" then
+        if msg ==  .. "clearchat" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -1596,7 +1596,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- VERSION:
-        if msg == Prefix .. "version" then
+        if msg ==  .. "version" then
 
             if index == 1 then
                 if latestVersion ~= "1.1.3" then
@@ -1609,7 +1609,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- RIZZ:
-        if msg:sub(1, 4) == Prefix .. "riz" then
+        if msg:sub(1, 4) ==  .. "riz" then
 
             local rizzlines = {
                 "Can I be your snowflake? I promise to never melt away from your heart.",
@@ -1672,7 +1672,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- WINGS (yep under riz):
-        if msg:sub(1, 6) == Prefix .. "wings" then
+        if msg:sub(1, 6) ==  .. "wings" then
             if #bots < 2 then
                 if index == 1 then
                     chat("You need minimum of 2 bots to use this command!")
@@ -1701,7 +1701,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg == Prefix .. "unwings" then
+        if msg ==  .. "unwings" then
             if wingsF then
                 wingsF:Disconnect()
             end
@@ -1710,7 +1710,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BRIDGE:
-        if msg:sub(1, 7) == Prefix .. "bridge" then
+        if msg:sub(1, 7) ==  .. "bridge" then
 
             local args = getArgs(message:sub(9))
             local targetPLR = getFullPlayerName(args[1])
@@ -1745,7 +1745,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg == Prefix .. "unbridge" then
+        if msg ==  .. "unbridge" then
             if index == 1 then
                 for _, child in pairs(LocalPLR.Character:GetChildren()) do
                     if child:IsA("BasePart") then
@@ -1767,7 +1767,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- CARPET:
-        if msg:sub(1, 7) == Prefix .. "carpet" then
+        if msg:sub(1, 7) ==  .. "carpet" then
 
             local args = getArgs(message:sub(9))
             local targetPLR = getFullPlayerName(args[1])
@@ -1787,7 +1787,7 @@ if LocalPLR.Name ~= Username then
 
         end
 
-        if msg:sub(1, 9) == Prefix .. "uncarpet" then
+        if msg:sub(1, 9) ==  .. "uncarpet" then
 
             function runCode()
                 carpetF:Disconnect()
@@ -1800,7 +1800,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- HUG:
-        if msg:sub(1, 4) == Prefix .. "hug" then
+        if msg:sub(1, 4) ==  .. "hug" then
             local args = getArgs(message:sub(6))
             local targetPLR = getFullPlayerName(args[1])
 
@@ -1833,7 +1833,7 @@ if LocalPLR.Name ~= Username then
             specifyBots2(args, 2, runCode)
         end
 
-        if msg == Prefix .. "unhug" then
+        if msg ==  .. "unhug" then
 
             function runCode()
                 if anim1 and anim2 then
@@ -1856,7 +1856,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- FULLBOX:
-        if msg:sub(1, 8) == Prefix .. "fullbox" then
+        if msg:sub(1, 8) ==  .. "fullbox" then
             if #bots < 4 then
                 if index == 1 then
                     chat("You need minimum of 4 bots to use this command!")
@@ -1909,7 +1909,7 @@ if LocalPLR.Name ~= Username then
             end)
         end
 
-        if msg:sub(1, 10) == Prefix .. "unfullbox" then
+        if msg:sub(1, 10) ==  .. "unfullbox" then
             if carpetAnim2 then
                 carpet2:Stop()
                 carpetAnim2:Destroy()
@@ -1928,7 +1928,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- STAIRS:
-        if msg:sub(1, 7) == Prefix .. "stairs" then
+        if msg:sub(1, 7) ==  .. "stairs" then
 
             local args = getArgs(message:sub(9))
             local targetPLR = getFullPlayerName(args[1])
