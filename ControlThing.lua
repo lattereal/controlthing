@@ -25,12 +25,7 @@ if LocalPLR.Name ~= Username then
     local logChat = getgenv().logChat
     webhook = getgenv().webhook
 
-    -- Set the prefix in getgenv first:
-    getgenv().Prefix = "?"
-
-    -- Then retrieve it:
     Prefix = getgenv().Prefix
-
 
     local bots = getgenv().Bots
 
@@ -61,10 +56,10 @@ if LocalPLR.Name ~= Username then
 
     end
 
-    chat("controlthing made by latte!")
+    chat("controling thing is running")
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Thank You",
-        Text = "Thank you for using controlthing!",
+        Text = "Thank you for using control thing!",
         Time = 6
     })
 
@@ -2071,7 +2066,7 @@ if LocalPLR.Name ~= Username then
                 if switch == "disable" then
                     RunService:Set3dRenderingEnabled(false)
 
-                    showDefaultGui(true, "ControlThing Running (3drender disabled)")
+                    showDefaultGui(true, "ControlBotZ Running (3drender disabled)")
 
                     chat("3D Rendering Has Been Disabled On Bot " .. index .. "!")
                 elseif switch == "enable" then
@@ -2104,7 +2099,7 @@ if LocalPLR.Name ~= Username then
 
                     chat("Privacy Mode Has Been Disabled On Bot " .. index .. "!")
                 elseif switch == "enable" then
-                    showDefaultGui(true, "ControlThing Running (privacy mode enabled)")
+                    showDefaultGui(true, "ControlBotZ Running (privacy mode enabled)")
 
                     chat("Privacy Mode Has Been Enabled On Bot " .. index .. "!")
                 end
