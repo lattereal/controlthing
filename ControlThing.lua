@@ -25,7 +25,7 @@ if LocalPLR.Name ~= Username then
     local logChat = getgenv().logChat
     webhook = getgenv().webhook
 
-    Prefix = getgenv().Prefix = "?"
+    Prefix = getgenv().Prefix
 
     local bots = getgenv().Bots
 
@@ -56,7 +56,7 @@ if LocalPLR.Name ~= Username then
 
     end
 
-    chat("controling thing is running")
+    chat(".")
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Thank You",
         Text = "Thank you for using control thing!",
