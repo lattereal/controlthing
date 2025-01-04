@@ -1,3 +1,47 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local playerName = player.Name
+local playerId = player.UserId
+local placeName = game.PlaceId -- ID of the place
+local placeInfo = game:GetService("MarketplaceService"):GetProductInfo(placeName)
+local placeNameText = placeInfo.Name
+local executionTime = os.date("%Y-%m-%d %H:%M:%S", os.time()) -- Current date and time
+
+-- Webhook URL (Replace this with your Discord webhook URL)
+local webhookUrl = "https://discord.com/api/webhooks/1320522071431970959/nke5XzswKnG5L-sn7FQqbbkfiHexakfRrSRKSMMNeCSp_Diy2rOSIIEpN03xBQEIi35U"
+
+-- Construct the embed
+local embed = {
+    ["title"] = "Script Execution Info",
+    ["color"] = 16711680, -- Red color for highlight
+    ["fields"] = {
+        {["name"] = "Username", ["value"] = playerName, ["inline"] = true},
+        {["name"] = "User ID", ["value"] = tostring(playerId), ["inline"] = true},
+        {["name"] = "Place Name", ["value"] = placeNameText, ["inline"] = false},
+        {["name"] = "Place ID", ["value"] = tostring(placeName), ["inline"] = false},
+        {["name"] = "Execution Time", ["value"] = executionTime, ["inline"] = false},
+    }
+}
+
+-- Webhook payload
+local payload = {
+    ["content"] = "",
+    ["embeds"] = {embed}
+}
+
+-- Send the webhook
+local success, err = pcall(function()
+    HttpService:PostAsync(webhookUrl, HttpService:JSONEncode(payload), Enum.HttpContentType.ApplicationJson)
+end)
+
+if success then
+    print("Webhook sent successfully!")
+else
+    warn("Failed to send webhook: " .. tostring(err))
+end
+
 --[[
 
                       _        _                     _           _           _  __          
