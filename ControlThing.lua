@@ -58,7 +58,7 @@ if LocalPLR.Name ~= Username then
 
     end
 
-    chat("this script was made by latte lolz")
+    chat(".")
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Thank You",
         Text = "latte made this!",
