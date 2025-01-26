@@ -393,7 +393,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- RESET:
-        if msg:sub(1, 6) == Prefix .. "reset" then
+        if msg:sub(1, 6) == Prefix .. "oof" then
 
             function runCode()
                 LocalPLR.Character.Humanoid.Health = 0
@@ -415,7 +415,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BRING:
-        if msg:sub(1, 6) == Prefix .. "bring" then
+        if msg:sub(1, 6) == Prefix .. "come" then
 
             function runCode()
                 LocalPLR.Character:FindFirstChild("HumanoidRootPart").CFrame = game.Players[player.Name].Character:FindFirstChild("HumanoidRootPart").CFrame
@@ -486,7 +486,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- CHAT:
-        if msg:sub(1, 5) == Prefix .. "chat" then
+        if msg:sub(1, 5) == Prefix .. "say" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -533,7 +533,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- LINEUP:
-        if msg:sub(1, 7) == Prefix .. "lineup" then
+        if msg:sub(1, 7) == Prefix .. "line" then
 
             local direction = msg:sub(9)
             local spacing = 3
@@ -561,7 +561,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SHUTDOWN:
-        if msg:sub(1, 9) == Prefix .. "shutdown" then
+        if msg:sub(1, 9) == Prefix .. "crash" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
@@ -2166,10 +2166,10 @@ if LocalPLR.Name ~= Username then
 
             if index == 1 then
                 if page == "1" then
-                    chat("rejoin, jump, reset, sit, chat (message), shutdown, orbit (username) (speed)/unorbit, bang (username) (speed)/unbang, walkto (username), speed (number), bring, clearchat, privacymode (enable/disable)")
+                    chat("rejoin, jump, oof, sit, say (message), shutdown, orbit (username) (speed)/unorbit, bang (username) (speed)/unbang, walkto (username), speed (number), bring, clearchat, privacymode (enable/disable)")
 
                     wait(0.2)
-                    chat("spin (number)/unspin, lineup (direction), 3drender (enable/disable), dance (emote), fling (username)/unfling, follow (username)/unfollow, lookat (username)/unlookat, stack (username)/unstack, quit")
+                    chat("spin (number)/unspin, line (direction), 3drender (enable/disable), dance (emote), fling (username)/unfling, follow (username)/unfollow, lookat (username)/unlookat, stack (username)/unstack, quit")
 
                     wait(0.2)
                     chat("goto (username), carpet (username)/uncarpet, linefollow (username)/unlinefollow, riz (username), facebang (username) (speed)/unfbang, announce (message), rocket (height), antibang, 2orbit (username)")
