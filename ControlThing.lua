@@ -415,7 +415,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- BRING:
-        if msg:sub(1, 6) == Prefix .. "cmon" then
+        if msg:sub(1, 6) == Prefix .. "bring" then
 
             function runCode()
                 LocalPLR.Character:FindFirstChild("HumanoidRootPart").CFrame = game.Players[player.Name].Character:FindFirstChild("HumanoidRootPart").CFrame
@@ -561,7 +561,7 @@ if LocalPLR.Name ~= Username then
         end
 
         -- SHUTDOWN:
-        if msg:sub(1, 9) == Prefix .. "crash" then
+        if msg:sub(1, 9) == Prefix .. "shutdown" then
 
             if player.Name ~= Username and not isAdmin(player.Name) then
                 return
