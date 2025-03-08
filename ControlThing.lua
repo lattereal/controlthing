@@ -61,7 +61,7 @@ if LocalPLR.Name ~= Username then
     chat(".")
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Thank You",
-        Text = "latte made this!",
+        Text = "latte made this!!!",
         Time = 6
     })
 
@@ -1929,55 +1929,80 @@ if LocalPLR.Name ~= Username then
             workspace.Gravity = normalGravity
         end
 
-        -- STAIRS:
-        if msg:sub(1, 7) == Prefix .. "stairs" then
+       -- HOLLOW PURPLE:
+if msg:sub(1, 13) == Prefix .. "hollowpurple" then
+    local args = getArgs(message:sub(15))
+    local targetPLR = getFullPlayerName(args[1])
+    
+    if not targetPLR then return end
+    
+    local blueBot, redBot, purpleBot
 
-            local args = getArgs(message:sub(9))
-            local targetPLR = getFullPlayerName(args[1])
-            local botInfront
+    -- Find the specific bots
+    for _, bot in pairs(bots) do
+        if bot == "Bot_OneBlue" then
+            blueBot = bot
+        elseif bot == "Bot_FourRed" then
+            redBot = bot
+        elseif bot == "Bot_ThreePurple" then
+            purpleBot = bot
+        end
+    end
 
-            for i, bot in pairs(bots) do
-                if i == index - 1 then
-                    botInfront = bot
+    if blueBot and redBot and purpleBot then
+        -- Position blue and red bots around the user
+        if LocalPLR.Name == blueBot or LocalPLR.Name == redBot then
+            orbitMotion = RunService.Heartbeat:Connect(function(deltaTime)
+                local angle = tick() * 3 -- Rotation speed
+                local xOffset = math.cos(angle) * 5
+                local zOffset = math.sin(angle) * 5
+                
+                if LocalPLR.Name == blueBot then
+                    LocalPLR.Character.HumanoidRootPart.CFrame = 
+                        game.Players[targetPLR].Character.HumanoidRootPart.CFrame * CFrame.new(xOffset, 3, zOffset)
+                elseif LocalPLR.Name == redBot then
+                    LocalPLR.Character.HumanoidRootPart.CFrame = 
+                        game.Players[targetPLR].Character.HumanoidRootPart.CFrame * CFrame.new(-xOffset, 3, -zOffset)
                 end
-            end
-
-            workspace.Gravity = 0
-            LocalPLR.Character.Humanoid.Sit = true
-            if index == 1 then
-                LocalPLR.Character.HumanoidRootPart.CFrame = CFrame.lookAt((game.Players[targetPLR].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)).Position, game.Players[targetPLR].Character.HumanoidRootPart.Position)
-
-                wait(0.5)
-
-                for _, child in pairs(LocalPLR.Character:GetChildren()) do
-                    if child:IsA("BasePart") then
-                        child.Anchored = true
-                    end
-                end
-            else
-                stairsF = RunService.Heartbeat:Connect(function(deltaTime)
-                    LocalPLR.Character.HumanoidRootPart.CFrame = CFrame.new((game.Players[botInfront].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 2)).Position, game.Players[botInfront].Character.HumanoidRootPart.Position) * CFrame.new(0, 2, 0)
-                end)
-            end
+            end)
         end
 
-        if msg == Prefix .. "unstairs" then
-            if stairsF then
-                stairsF:Disconnect()
-            end
+        wait(3) -- Time before red and blue disappear
 
-            if index == 1 then
-                for _, child in pairs(LocalPLR.Character:GetChildren()) do
-                    if child:IsA("BasePart") then
-                        child.Anchored = false
-                    end
-                end
-            end
-
-            LocalPLR.Character.Humanoid.Sit = false
-            workspace.Gravity = normalGravity
+        -- Remove red and blue bots
+        if LocalPLR.Name == redBot or LocalPLR.Name == blueBot then
+            LocalPLR.Character:Destroy()
         end
 
+        if orbitMotion then
+            orbitMotion:Disconnect()
+        end
+
+        wait(1) -- Delay before purple bot appears
+
+        -- Position purple bot near the target
+        if LocalPLR.Name == purpleBot then
+            LocalPLR.Character.HumanoidRootPart.CFrame = 
+                game.Players[targetPLR].Character.HumanoidRootPart.CFrame * CFrame.new(0, 5, 0)
+
+            -- Follow target
+            followTarget = RunService.Heartbeat:Connect(function()
+                if game.Players:FindFirstChild(targetPLR) then
+                    LocalPLR.Character.HumanoidRootPart.CFrame = 
+                        game.Players[targetPLR].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -2)
+                end
+            end)
+        end
+    end
+end
+
+if msg == Prefix .. "unhollow" then
+    if followTarget then
+        followTarget:Disconnect()
+    end
+end
+
+        
         -- DANCE (THANKS TO @bloxi199 FOR HELPING):
         if msg:sub(1, 6) == Prefix .. "dance" then
             local args = getArgs(msg:sub(8))
